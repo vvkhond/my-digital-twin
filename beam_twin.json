@@ -1,0 +1,92 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "title": "Smart Composite Beam Digital Twin",
+  "id": "urn:dev:ops:beam-001",
+  "description": "Digital twin of a smart composite beam for vibration monitoring and control",
+
+  "properties": {
+    "vibration_amplitude": {
+      "title": "Vibration Amplitude",
+      "type": "number",
+      "unit": "mm",
+      "description": "Instantaneous vibration amplitude of beam",
+      "forms": [
+        {
+          "href": "https://example.com/api/vibration",
+          "contentType": "application/json"
+        }
+      ]
+    },
+
+    "natural_frequency": {
+      "title": "Natural Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "description": "Fundamental natural frequency of beam",
+      "forms": [
+        {
+          "href": "https://example.com/api/frequency",
+          "contentType": "application/json"
+        }
+      ]
+    },
+
+    "temperature": {
+      "title": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "description": "Beam surface temperature",
+      "forms": [
+        {
+          "href": "https://example.com/api/temperature",
+          "contentType": "application/json"
+        }
+      ]
+    },
+
+    "displacement": {
+      "title": "Displacement",
+      "type": "number",
+      "unit": "mm",
+      "description": "Tip displacement of beam",
+      "forms": [
+        {
+          "href": "https://example.com/api/displacement",
+          "contentType": "application/json"
+        }
+      ]
+    }
+  },
+
+  "actions": {
+    "apply_control_force": {
+      "title": "Apply Control Force",
+      "description": "Apply control force using actuator (SMA/Piezo)",
+      "input": {
+        "type": "number",
+        "unit": "N"
+      },
+      "forms": [
+        {
+          "href": "https://example.com/api/control",
+          "contentType": "application/json"
+        }
+      ]
+    }
+  },
+
+  "events": {
+    "high_vibration_alert": {
+      "description": "Triggered when vibration exceeds safe limit",
+      "data": {
+        "type": "number"
+      },
+      "forms": [
+        {
+          "href": "https://example.com/api/alert",
+          "contentType": "application/json"
+        }
+      ]
+    }
+  }
+}
